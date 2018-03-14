@@ -1,18 +1,40 @@
-# Project proposal
+# DrinkTracker Project Proposal
 
 ## Project Description
-Think "Elevator Pitch". Succinctly, but completely describe what you'll be building
-After reading the project description, it is clear what the project aims to accomplish
+
+
+
+
+
+
+
+[] Think "Elevator Pitch". Succinctly, but completely describe what you'll be building
+[] After reading the project description, it is clear what the project aims to accomplish
 
 ## Problem statement
-What problem is your app solving? Who has it?
+
+With ample opportunities for free drinks in the tech community, it can be easy to lose track of just how much alcohol you're drinking.
 
 ## How will your project solve this problem?
-The relationship between the stated problem and the project is clearly defined
+
+DrinkTracker provides an easy way to increase awareness, set goals, and enjoy all that free beer in a healthy way.
 
 ## Map the user experience
-When the user opens your app, what happens? What information does your app need from your user? What does it output in return?
-The user experience is described in full, including any inputs/outputs that experience will require
+
+The user will open the app and see the landing page.
+
+
+
+[] When the user opens your app, what happens? What information does your app need from your user? What does it output in return?
+[] The user experience is described in full, including any inputs/outputs that experience will require
 
 ## What technologies do you plan to use?
-This should be a complete list, including APIs. Be prepared to defend the items on this list. This means you should research the technologies/APIs, and know why you're planning to use each.
+
+* React Native - frontend for mobile app
+* Express - server
+* Knex.js - database queries
+* PostgreSQL - database
+* Heroku - host backend server and database
+* Cypress - end to end testing
+* Google Sign-In (stretch) - allow a user to sign in with Google
+* Google Calendar API (stretch) - integrate with user's calendar events
