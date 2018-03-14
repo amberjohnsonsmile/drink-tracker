@@ -8,8 +8,8 @@
 
 
 
-[] Think "Elevator Pitch". Succinctly, but completely describe what you'll be building
-[] After reading the project description, it is clear what the project aims to accomplish
+[ ] Think "Elevator Pitch". Succinctly, but completely describe what you'll be building
+[ ] After reading the project description, it is clear what the project aims to accomplish
 
 ## Problem statement
 
