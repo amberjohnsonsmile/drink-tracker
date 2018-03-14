@@ -8,8 +8,8 @@
 
 
 
-[] Think "Elevator Pitch". Succinctly, but completely describe what you'll be building
-[] After reading the project description, it is clear what the project aims to accomplish
+- [ ] Think "Elevator Pitch". Succinctly, but completely describe what you'll be building
+- [ ] After reading the project description, it is clear what the project aims to accomplish
 
 ## Problem statement
 
@@ -25,8 +25,8 @@ The user will open the app and see the landing page.
 
 
 
-[] When the user opens your app, what happens? What information does your app need from your user? What does it output in return?
-[] The user experience is described in full, including any inputs/outputs that experience will require
+- [ ] When the user opens your app, what happens? What information does your app need from your user? What does it output in return?
+- [ ] The user experience is described in full, including any inputs/outputs that experience will require
 
 ## What technologies do you plan to use?
 
