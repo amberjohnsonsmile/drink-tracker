@@ -1,13 +1,22 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Component } from 'react';
+import { Button, Image, StyleSheet, Text, View } from 'react-native';
 
-export default class App extends React.Component {
+export default class LandingPage extends Component {
   render() {
     return (
+      // Header
+      // Menu
+      // Logo
+      // Title
+
+
+      // Main
+      // Logo
+      // Tagline
+      // Button
       <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
+        <Image source={require('./assets/martini.png')} style={{width: 100, height: 140}} />
+        <Text style={styles.title}>Drinkify</Text>
       </View>
     );
   }
@@ -16,8 +25,12 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    flexDirection: 'row',
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
+  title: {
+    fontSize: 60,
+  }
 });
