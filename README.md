@@ -1,8 +1,8 @@
-# Drinkify Project Proposal
+# Sipster Project Proposal
 
 ## Project Description
 
-Drinkify allows you to keep track of how many alcoholic drinks you consume on a daily basis. The app also provides tools for goal setting and looking back at drinking patterns.
+Sipster allows you to keep track of how many alcoholic drinks you consume on a daily basis. The app also provides tools for goal setting and looking back at drinking patterns.
 
 ## Problem statement
 
@@ -10,7 +10,7 @@ With ample opportunities for free drinks in the tech community, it can be easy t
 
 ## How will your project solve this problem?
 
-Drinkify provides an easy way to increase awareness, set goals, and enjoy all that free beer in a healthy way.
+Sipster provides an easy way to increase awareness, set goals, and enjoy all that free beer in a healthy way.
 
 ## Map the user experience
 

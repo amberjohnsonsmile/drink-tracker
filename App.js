@@ -16,7 +16,7 @@ export default class LandingPage extends Component {
       // Button
       <View style={styles.container}>
         <Image source={require('./assets/martini.png')} style={{width: 100, height: 140}} />
-        <Text style={styles.title}>Drinkify</Text>
+        <Text style={styles.title}>Sipster</Text>
       </View>
     );
   }
