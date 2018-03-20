@@ -22,7 +22,6 @@
     "expo": "^25.0.0",
     "react": "16.2.0",
     "react-native": "0.52.0",
-    "react-native-hamburger": "0.0.2",
-    "react-navigation": "^1.5.7"
+    "react-native-router-flux": "^4.0.0-beta.28"
   }
 }
