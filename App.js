@@ -17,7 +17,7 @@ const App = () => {
         />
         <Scene key="calendar"
           component={Calendar}
-          title="Calendar"
+          title="sipster"
         />
       </Stack>
     </Router>

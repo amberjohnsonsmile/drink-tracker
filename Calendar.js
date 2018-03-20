@@ -1,12 +1,26 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
+
+import NavBar from './NavBar';
 
 export default class Calendar extends Component {
   render() {
     return (
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'lightgreen'}}>
-        <Text>Calendar page!</Text>
+      <View style={{flex: 1}}>
+        <NavBar />
+        <View style={styles.main}>
+          <Text>Calendar page!</Text>
+        </View>
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  main: {
+    flex: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'white'
+  }
+});

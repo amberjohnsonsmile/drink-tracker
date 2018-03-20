@@ -5,10 +5,6 @@ import { Actions } from 'react-native-router-flux';
 import NavBar from './NavBar';
 
 export default class LandingPage extends Component {
-  _onPressButton() {
-    Alert.alert('Cheers!')
-  }
-
   render() {
     return (
       <View style={{flex: 1, backgroundColor: 'white'}}>

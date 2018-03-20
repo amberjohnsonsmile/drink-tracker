@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
-import { Alert, Button, Image, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
 export default class NavBar extends Component {
   render() {
     return (
       <View style={styles.nav}>
-        <Text style={styles.title}>sipster</Text>
+        <View style={{flexDirection: 'row'}}>
+          <TouchableOpacity onPress={Actions.calendar}> 
+            <Text style={styles.link}>calendar</Text>
+          </TouchableOpacity>
+        </View>
+        <TouchableOpacity onPress={Actions.landingpage}> 
+          <Text style={styles.title}>sipster</Text>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -14,12 +22,20 @@ export default class NavBar extends Component {
 const styles = StyleSheet.create({
   nav: {
     flex: 1,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    justifyContent: 'space-between',
     backgroundColor: 'lightgreen'
+  },
+  link: {
+    paddingBottom: 10,
+    paddingLeft: 10,
+    fontSize: 16,
+    color: 'white'
   },
   title: {
     paddingBottom: 10,
+    paddingRight: 10,
     fontSize: 26,
     fontWeight: 'bold',
     color: 'white'
