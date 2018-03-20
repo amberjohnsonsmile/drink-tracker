@@ -1,5 +1,7 @@
 # Sipster Project Proposal
 
+![logo](https://user-images.githubusercontent.com/31632938/37634420-080a77b8-2bbc-11e8-94df-9cfff48d2bc5.png)
+
 ## Project Description
 
 Sipster allows you to keep track of how many alcoholic drinks you consume on a daily basis. The app also provides tools for goal setting and looking back at drinking patterns.
