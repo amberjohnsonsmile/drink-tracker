@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
+import DrinkList from './DrinkList';
 import NavBar from './NavBar';
 
 export default class Calendar extends Component {
@@ -9,7 +10,8 @@ export default class Calendar extends Component {
       <View style={{flex: 1}}>
         <NavBar />
         <View style={styles.main}>
-          <Text>Calendar page!</Text>
+          <Text style={{alignSelf: 'center', fontSize: 26, fontWeight: 'bold', color: 'lightgreen', paddingTop: 30}}>drink history</Text>
+          <DrinkList />
         </View>
       </View>
     );
@@ -19,7 +21,7 @@ export default class Calendar extends Component {
 const styles = StyleSheet.create({
   main: {
     flex: 8,
-    alignItems: 'center',
+    alignItems: 'flex-start',
     justifyContent: 'center',
     backgroundColor: 'white'
   }
