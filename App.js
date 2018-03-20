@@ -1,36 +1,46 @@
 import React, { Component } from 'react';
-import { Button, Image, StyleSheet, Text, View } from 'react-native';
+import { Alert, Button, Image, StyleSheet, Text, View } from 'react-native';
 
 export default class LandingPage extends Component {
+  _onPressButton() {
+    Alert.alert('Cheers!')
+  }
+
   render() {
     return (
-      // Header
-      // Menu
-      // Logo
-      // Title
-
-
-      // Main
-      // Logo
-      // Tagline
-      // Button
-      <View style={styles.container}>
-        <Image source={require('./assets/martini.png')} style={{width: 100, height: 140}} />
-        <Text style={styles.title}>Sipster</Text>
+      <View style={{flex: 1}}>
+        <View style={styles.nav}>
+          <Text style={styles.title}>sipster</Text>
+        </View>
+        <View style={styles.main}>
+          <Image source={require('./assets/sipster.png')} style={{width: 224, height: 136, marginBottom: 30}} />
+          <Button
+            onPress={this._onPressButton}
+            title="get sippin'"
+            color="lightgreen"
+          />
+        </View>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
+  nav: {
     flex: 1,
-    flexDirection: 'row',
-    backgroundColor: '#fff',
+    justifyContent: 'flex-end',
     alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: 'lightgreen'
   },
   title: {
-    fontSize: 60,
+    paddingBottom: 10,
+    fontSize: 26,
+    fontWeight: 'bold',
+    color: 'white'
+  },
+  main: {
+    flex: 8,
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 });
