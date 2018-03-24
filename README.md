@@ -21,8 +21,8 @@ The user will open the app and see the landing page. They will then move on to t
 ## What technologies do you plan to use?
 
 * React Native (new technology) - frontend for mobile app
-* MongoDB - database
-* Mongoose - database queries
+* PostgreSQL - database
+* Knex.js - database queries
 * Cypress - end to end testing
 * Google Sign-In (stretch) - allow a user to sign in with Google
 * Google Calendar API (stretch) - integrate with user's calendar events
