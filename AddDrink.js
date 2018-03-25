@@ -14,11 +14,34 @@ import NavBar from './NavBar';
 export default class AddDrink extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {date: new Date()};
   }
 
   addDrink = () => {
-    Alert.alert(this.state.date);
+    var selectedDate = this.state.date.toISOString().slice(0, 11) + '00:00:00.000Z';
+    fetch('http://sipster-tracker.herokuapp.com/drinks/' + selectedDate)
+      .then(response => response.json())
+      .then(response => {
+        this.setState(
+          {
+            dailyDrinks: response.drinks.drinks
+          }
+        );
+      })
+      .then(() => {
+        fetch('http://sipster-tracker.herokuapp.com/drinks/' + selectedDate, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            drinks: this.state.dailyDrinks + 1
+          })
+        })
+    .catch(console.error);
+      })
+      .catch(console.error);
+
   };
 
   showPicker = async (stateKey, options) => {
@@ -45,7 +68,10 @@ export default class AddDrink extends Component {
         <NavBar />
         <View style={styles.main}>
           <Text style={styles.date}>Sunday, March 25</Text>
-          <TouchableOpacity onPress={this.showPicker.bind(this, 'spinner', { date: this.state.presetDate })}>
+          <TouchableOpacity
+            onPress={this.showPicker.bind(this, 'spinner', {
+              date: this.state.presetDate
+            })}>
             <Text style={styles.select}>select another date</Text>
           </TouchableOpacity>
           <View style={{alignItems: 'stretch'}}>
