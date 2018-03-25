@@ -14,41 +14,25 @@ import NavBar from './NavBar';
 export default class AddDrink extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      date: new Date()
-    };
+    this.state = {};
   }
 
   addDrink = () => {
     Alert.alert(this.state.date);
   };
 
-  // async openAndroidDatePicker() {
-  //   try {
-  //     const {action, year, month, day} = await DatePickerAndroid.open({
-  //       var newDate = new Date(year, month, day);
-  //     });
-  //     this.setState({
-  //       date: newDate'
-  //     });
-  //   } catch ({code, message}) {
-  //     console.warn('Cannot open date picker', message);
-  //   }
-  // }
-
   showPicker = async (stateKey, options) => {
     try {
       var newState = {};
       const {action, year, month, day} = await DatePickerAndroid.open(options);
-      // if (action === DatePickerAndroid.dismissedAction) {
-      //   newState[stateKey + 'Text'] = 'dismissed';
-      // } else {
+      if (action === DatePickerAndroid.dismissedAction) {
+        newState[stateKey + 'Text'] = 'dismissed';
+      } else {
         // <<<< Newly selected date >>>>
-        // newState[stateKey + 'Text'] = date.toLocaleDateString();
-        // newState[stateKey + 'Date'] = date;
-        var newDate = new Date(year, month, day);
-        newState[date] = newDate;
-      // }
+        var date = new Date(year, month, day);
+        newState[stateKey + 'Text'] = date.toLocaleDateString();
+        newState[stateKey + 'Date'] = date;
+      }
       this.setState(newState);
     } catch ({code, message}) {
       console.warn(`Error in example '${stateKey}': `, message);
