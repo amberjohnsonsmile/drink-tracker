@@ -27,7 +27,7 @@ export default class DrinkList extends Component {
 
     if (this.state.isLoading) {
       return (
-        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+        <View style={{flex: 1}}>
           <ActivityIndicator />
         </View>
       );
@@ -37,19 +37,9 @@ export default class DrinkList extends Component {
       <View style={styles.container}>
         <FlatList
           data={this.state.dataSource}
-          /*{[
-            {key: 'Friday, March 2', drinks: 3},
-            {key: 'Thursday, March 8', drinks: 1},
-            {key: 'Friday, March 9', drinks: 3},
-            {key: 'Sunday, March 11', drinks: 1},
-            {key: 'Tuesday, March 13', drinks: 3},
-            {key: 'Friday, March 16', drinks: 3},
-            {key: 'Saturday, March 17', drinks: 1},
-            {key: 'Sunday, March 18', drinks: 1}
-          ]}*/
           renderItem={({item}) =>
             <View style={styles.itemContainer}>
-              <Text style={styles.date}>{item.date}:</Text>
+              <Text style={styles.date}>{item.dateString}:</Text>
               <Text style={styles.drinks}>{item.drinks}</Text>
             </View>
           }
