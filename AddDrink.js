@@ -14,19 +14,21 @@ import NavBar from './NavBar';
 export default class AddDrink extends Component {
   constructor(props) {
     super(props);
-    this.state = {date: new Date()};
+    this.state = {
+      date: new Date(),
+      drinkAdded: false
+    };
   }
 
   addDrink = () => {
-    var selectedDate = this.state.date.toISOString().slice(0, 11) + '00:00:00.000Z';
+    var selectedDate =
+      this.state.date.toISOString().slice(0, 11) + '00:00:00.000Z';
     fetch('http://sipster-tracker.herokuapp.com/drinks/' + selectedDate)
       .then(response => response.json())
       .then(response => {
-        this.setState(
-          {
-            dailyDrinks: response.drinks.drinks
-          }
-        );
+        this.setState({
+          dailyDrinks: response.drinks.drinks
+        });
       })
       .then(() => {
         fetch('http://sipster-tracker.herokuapp.com/drinks/' + selectedDate, {
@@ -38,10 +40,14 @@ export default class AddDrink extends Component {
             drinks: this.state.dailyDrinks + 1
           })
         })
-    .catch(console.error);
+          .then(() => {
+            this.setState({
+              drinkAdded: true
+            });
+          })
+          .catch(console.error);
       })
       .catch(console.error);
-
   };
 
   showPicker = async (stateKey, options) => {
@@ -75,11 +81,17 @@ export default class AddDrink extends Component {
             <Text style={styles.select}>select another date</Text>
           </TouchableOpacity>
           <View style={{alignItems: 'stretch'}}>
+
+          {this.state.drinkAdded ? (
+            <Text>drink added!</Text>
+          ) : (
             <Button
               onPress={this.addDrink}
               title="Add drink"
               color="lightgreen"
             />
+          )}
+      
             <View style={styles.spacer} />
             <Button
               onPress={() => Alert.alert('delete')}
