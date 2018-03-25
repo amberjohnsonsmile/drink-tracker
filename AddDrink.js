@@ -48,13 +48,25 @@ export default class AddDrink extends Component {
           <TouchableOpacity
             onPress={this.showPicker.bind(this, 'spinner', {
               date: this.state.presetDate
-            })}> 
-            <Text>select another date</Text>
+            })}>
+            <Text style={styles.select}>select another date</Text>
           </TouchableOpacity>
-          <Button
-            onPress={this.addDrink}
-            title="Add drink"
-            color="lightgreen"
+          <View style={{alignItems: 'stretch'}}>
+            <Button
+              onPress={this.addDrink}
+              title="Add drink"
+              color="lightgreen"
+            />
+            <View style={styles.spacer} />
+            <Button
+              onPress={() => Alert.alert('delete')}
+              title="Delete drink"
+              color="lightgreen"
+            />
+          </View>
+          <Image
+            source={require('./assets/drink.png')}
+            style={{width: 100, height: 140, marginTop: 50}}
           />
         </View>
       </View>
@@ -65,7 +77,7 @@ export default class AddDrink extends Component {
 const styles = StyleSheet.create({
   main: {
     flex: 8,
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white'
   },
@@ -73,7 +85,13 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     fontSize: 26,
     fontWeight: 'bold',
-    color: 'lightgreen',
-    paddingTop: 30
+    color: 'lightgreen'
+  },
+  select: {
+    fontSize: 16,
+    paddingBottom: 60
+  },
+  spacer: {
+    height: 20
   }
 });
