@@ -1,8 +1,13 @@
-import React, { Component } from 'react';
-import { ActivityIndicator, FlatList, StyleSheet, Text, View } from 'react-native';
+import React, {Component} from 'react';
+import {
+  ActivityIndicator,
+  FlatList,
+  StyleSheet,
+  Text,
+  View
+} from 'react-native';
 
 export default class DrinkList extends Component {
-
   constructor(props) {
     super(props);
     this.state = {isLoading: true};
@@ -24,7 +29,6 @@ export default class DrinkList extends Component {
   }
 
   render() {
-
     if (this.state.isLoading) {
       return (
         <View style={{flex: 1}}>
@@ -32,17 +36,17 @@ export default class DrinkList extends Component {
         </View>
       );
     }
-    
-    return(
+
+    return (
       <View style={styles.container}>
         <FlatList
           data={this.state.dataSource}
-          renderItem={({item}) =>
+          renderItem={({item}) => (
             <View style={styles.itemContainer}>
               <Text style={styles.date}>{item.dateString}:</Text>
               <Text style={styles.drinks}>{item.drinks}</Text>
             </View>
-          }
+          )}
           keyExtractor={(item, index) => index}
         />
       </View>
@@ -53,13 +57,14 @@ export default class DrinkList extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    flexDirection: 'row',
     paddingTop: 22
   },
   itemContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
     padding: 10,
-    paddingLeft: 50
   },
   date: {
     fontSize: 18
