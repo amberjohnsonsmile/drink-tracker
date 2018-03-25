@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {
   ActivityIndicator,
   FlatList,
+  ScrollView,
   StyleSheet,
   Text,
   View
@@ -31,30 +32,47 @@ export default class DrinkList extends Component {
   render() {
     if (this.state.isLoading) {
       return (
-        <View style={{flex: 1, padding: 50}}>
+        <View style={{flex: 8, justifyContent: 'center', backgroundColor: 'white'}}>
           <ActivityIndicator />
         </View>
       );
     }
 
     return (
-      <View style={styles.container}>
-        <FlatList
-          data={this.state.drinksData}
-          renderItem={({item}) => (
-            <View style={styles.itemContainer}>
-              <Text style={styles.date}>{item.dateString}:</Text>
-              <Text style={styles.drinks}>{item.drinks}</Text>
-            </View>
-          )}
-          keyExtractor={(item, index) => index}
-        />
+      <View style={styles.main}>
+        <ScrollView>
+          <Text style={styles.history}>drink history</Text>
+          <FlatList
+            data={this.state.drinksData}
+            renderItem={({item}) => (
+              <View style={styles.itemContainer}>
+                <Text style={styles.date}>{item.dateString}:</Text>
+                <Text style={styles.drinks}>{item.drinks}</Text>
+              </View>
+            )}
+            keyExtractor={(item, index) => index}
+          />
+        </ScrollView>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  main: {
+    flex: 8,
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    justifyContent: 'center',
+    backgroundColor: 'white'
+  },
+  history: {
+    alignSelf: 'center',
+    fontSize: 26,
+    fontWeight: 'bold',
+    color: 'lightgreen',
+    paddingTop: 30
+  },
   container: {
     flex: 1,
     flexDirection: 'row',
@@ -64,7 +82,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 10,
+    padding: 10
   },
   date: {
     fontSize: 18

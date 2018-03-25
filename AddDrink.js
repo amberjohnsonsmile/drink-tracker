@@ -4,10 +4,12 @@ import {
   Button,
   DatePickerAndroid,
   Image,
+  StyleSheet,
   Text,
-  TouchableWithoutFeedback,
+  TouchableOpacity,
   View
 } from 'react-native';
+import NavBar from './NavBar';
 
 export default class AddDrink extends Component {
   constructor(props) {
@@ -39,16 +41,39 @@ export default class AddDrink extends Component {
 
   render() {
     return (
-      <View>
-        <Button
-          onPress={this.showPicker.bind(this, 'spinner', {
-            date: this.state.presetDate
-          })}
-          title="Select date"
-          color="lightgreen"
-        />
-        <Button onPress={this.addDrink} title="Add drink" color="lightgreen" />
+      <View style={{flex: 1}}>
+        <NavBar />
+        <View style={styles.main}>
+          <Text style={styles.date}>Sunday, March 25</Text>
+          <TouchableOpacity
+            onPress={this.showPicker.bind(this, 'spinner', {
+              date: this.state.presetDate
+            })}> 
+            <Text>select another date</Text>
+          </TouchableOpacity>
+          <Button
+            onPress={this.addDrink}
+            title="Add drink"
+            color="lightgreen"
+          />
+        </View>
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  main: {
+    flex: 8,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    backgroundColor: 'white'
+  },
+  date: {
+    alignSelf: 'center',
+    fontSize: 26,
+    fontWeight: 'bold',
+    color: 'lightgreen',
+    paddingTop: 30
+  }
+});

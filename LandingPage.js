@@ -14,7 +14,7 @@ export default class LandingPage extends Component {
           <Text style={{textAlign: 'center'}}>Track daily intake. Set goals.</Text>
           <Text style={{textAlign: 'center', marginBottom: 30}}>Increase awareness, increase health.</Text>
           <Button
-            onPress={Actions.calendar}
+            onPress={Actions.adddrink}
             title="get sippin'"
             color="lightgreen"
           />
