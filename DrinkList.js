@@ -20,7 +20,7 @@ export default class DrinkList extends Component {
         this.setState(
           {
             isLoading: false,
-            dataSource: response.drinks
+            drinksData: response.drinks
           },
           function() {}
         );
@@ -31,7 +31,7 @@ export default class DrinkList extends Component {
   render() {
     if (this.state.isLoading) {
       return (
-        <View style={{flex: 1}}>
+        <View style={{flex: 1, padding: 50}}>
           <ActivityIndicator />
         </View>
       );
@@ -40,7 +40,7 @@ export default class DrinkList extends Component {
     return (
       <View style={styles.container}>
         <FlatList
-          data={this.state.dataSource}
+          data={this.state.drinksData}
           renderItem={({item}) => (
             <View style={styles.itemContainer}>
               <Text style={styles.date}>{item.dateString}:</Text>

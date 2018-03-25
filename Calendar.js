@@ -1,29 +1,32 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {ScrollView, StyleSheet, Text, View} from 'react-native';
 
+import AddDrink from './AddDrink';
 import DrinkList from './DrinkList';
 import NavBar from './NavBar';
 
 export default class Calendar extends Component {
-
   render() {
     return (
-      <View style={{flex: 1}}>
-        <NavBar />
-        <View style={styles.main}>
-          <Text
-            style={{
-              alignSelf: 'center',
-              fontSize: 26,
-              fontWeight: 'bold',
-              color: 'lightgreen',
-              paddingTop: 30
-            }}>
-            drink history
-          </Text>
-          <DrinkList />
+      <ScrollView>
+        <View style={{flex: 1}}>
+          <NavBar />
+          <View style={styles.main}>
+            <Text
+              style={{
+                alignSelf: 'center',
+                fontSize: 26,
+                fontWeight: 'bold',
+                color: 'lightgreen',
+                paddingTop: 30
+              }}>
+              drink history
+            </Text>
+            <DrinkList />
+            <AddDrink />
+          </View>
         </View>
-      </View>
+      </ScrollView>
     );
   }
 }
