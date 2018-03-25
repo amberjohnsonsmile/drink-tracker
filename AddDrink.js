@@ -73,7 +73,7 @@ export default class AddDrink extends Component {
         })
           .then(() => {
             this.setState({
-              drinkDelete: true
+              drinkDeleted: true
             });
           })
           .catch(console.error);
