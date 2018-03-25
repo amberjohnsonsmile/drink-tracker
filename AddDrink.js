@@ -112,27 +112,21 @@ export default class AddDrink extends Component {
             <Text style={styles.select}>select another date</Text>
           </TouchableOpacity>
           <View style={{alignItems: 'stretch'}}>
-            {this.state.drinkAdded ? (
-              <Text>drink added!</Text>
-            ) : (
-              <Button
-                onPress={this.addDrink}
-                title="Add drink"
-                color="lightgreen"
-              />
-            )}
+            <Button
+              onPress={this.addDrink}
+              title="Add drink"
+              color="lightgreen"
+            />
+            {this.state.drinkAdded && <Text>drink added!</Text>}
 
             <View style={styles.spacer} />
 
-            {this.state.drinkDeleted ? (
-              <Text>drink deleted!</Text>
-            ) : (
-              <Button
-                onPress={this.deleteDrink}
-                title="Delete drink"
-                color="lightgreen"
-              />
-            )}
+            <Button
+              onPress={this.deleteDrink}
+              title="Delete drink"
+              color="lightgreen"
+            />
+            {this.state.drinkDeleted && <Text>drink deleted!</Text>}
           </View>
           <Image
             source={require('./assets/drink.png')}
