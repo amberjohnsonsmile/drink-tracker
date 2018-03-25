@@ -16,7 +16,8 @@ export default class AddDrink extends Component {
     super(props);
     this.state = {
       date: new Date(),
-      drinkAdded: false
+      drinkAdded: false,
+      drinkDeleted: false
     };
   }
 
@@ -43,6 +44,36 @@ export default class AddDrink extends Component {
           .then(() => {
             this.setState({
               drinkAdded: true
+            });
+          })
+          .catch(console.error);
+      })
+      .catch(console.error);
+  };
+
+  deleteDrink = () => {
+    var selectedDate =
+      this.state.date.toISOString().slice(0, 11) + '00:00:00.000Z';
+    fetch('http://sipster-tracker.herokuapp.com/drinks/' + selectedDate)
+      .then(response => response.json())
+      .then(response => {
+        this.setState({
+          dailyDrinks: response.drinks.drinks
+        });
+      })
+      .then(() => {
+        fetch('http://sipster-tracker.herokuapp.com/drinks/' + selectedDate, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            drinks: this.state.dailyDrinks - 1
+          })
+        })
+          .then(() => {
+            this.setState({
+              drinkDelete: true
             });
           })
           .catch(console.error);
@@ -81,23 +112,27 @@ export default class AddDrink extends Component {
             <Text style={styles.select}>select another date</Text>
           </TouchableOpacity>
           <View style={{alignItems: 'stretch'}}>
+            {this.state.drinkAdded ? (
+              <Text>drink added!</Text>
+            ) : (
+              <Button
+                onPress={this.addDrink}
+                title="Add drink"
+                color="lightgreen"
+              />
+            )}
 
-          {this.state.drinkAdded ? (
-            <Text>drink added!</Text>
-          ) : (
-            <Button
-              onPress={this.addDrink}
-              title="Add drink"
-              color="lightgreen"
-            />
-          )}
-      
             <View style={styles.spacer} />
-            <Button
-              onPress={() => Alert.alert('delete')}
-              title="Delete drink"
-              color="lightgreen"
-            />
+
+            {this.state.drinkDeleted ? (
+              <Text>drink deleted!</Text>
+            ) : (
+              <Button
+                onPress={this.deleteDrink}
+                title="Delete drink"
+                color="lightgreen"
+              />
+            )}
           </View>
           <Image
             source={require('./assets/drink.png')}
