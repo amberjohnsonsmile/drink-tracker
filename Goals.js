@@ -29,7 +29,6 @@ export default class Goals extends Component {
   };
 
   addGoal = () => {
-    Alert.alert(this.state.text);
     fetch('http://sipster-tracker.herokuapp.com/goals', {
       method: 'POST',
       headers: {
@@ -41,7 +40,8 @@ export default class Goals extends Component {
     })
       .then(() => {
         this.setState({
-          goalAdded: true
+          goalAdded: true,
+          addingGoal: false
         });
       })
       .catch(console.error);
@@ -76,37 +76,42 @@ export default class Goals extends Component {
       <View style={{flex: 1}}>
         <NavBar />
         <View style={styles.main}>
-          {this.state.addingGoal ? (
-            <TextInput
-              style={styles.text}
-              placeholder="Enter a new goal"
-              onChangeText={text => this.setState({text})}
-              onSubmitEditing={this.addGoal}
-            />
-          ) : (
-            <Button
-              onPress={this.createGoal}
-              title="Create new goal"
-              color="lightgreen"
-            />
-          )}
+          <ScrollView>
+            <View style={styles.spacer} />
+            {this.state.addingGoal ? (
+              <TextInput
+                style={styles.text}
+                placeholder="Enter a new goal"
+                onChangeText={text => this.setState({text})}
+                onSubmitEditing={this.addGoal}
+              />
+            ) : (
+              <View style={{alignItems: 'center'}}>
+                <Button
+                  onPress={this.createGoal}
+                  title="Create new goal"
+                  color="lightgreen"
+                />
+              </View>
+            )}
 
-          <Text style={styles.goals}>current goals</Text>
-          <View style={styles.listContainer}>
-            <FlatList
-              data={this.state.goalsData}
-              renderItem={({item}) => (
-                <View style={styles.listItem}>
-                  <Image
-                    source={require('./assets/drink.png')}
-                    style={{width: 36, height: 50}}
-                  />
-                  <Text style={styles.listText}>{item.goal}</Text>
-                </View>
-              )}
-              keyExtractor={(item, index) => index}
-            />
-          </View>
+            <Text style={styles.goals}>current goals</Text>
+            <View style={styles.listContainer}>
+              <FlatList
+                data={this.state.goalsData}
+                renderItem={({item}) => (
+                  <View style={styles.listItem}>
+                    <Image
+                      source={require('./assets/drink.png')}
+                      style={{width: 36, height: 50}}
+                    />
+                    <Text style={styles.listText}>{item.goal}</Text>
+                  </View>
+                )}
+                keyExtractor={(item, index) => index}
+              />
+            </View>
+          </ScrollView>
         </View>
       </View>
     );
@@ -118,21 +123,25 @@ const styles = StyleSheet.create({
     flex: 8,
     alignItems: 'center',
     justifyContent: 'flex-start',
-    paddingTop: 50,
     backgroundColor: 'white'
+  },
+  spacer: {
+    height: 50
   },
   text: {
     height: 40,
     marginRight: 40,
     marginLeft: 40,
     paddingLeft: 10,
+    paddingRight: 10,
     alignSelf: 'stretch'
   },
   goals: {
     fontSize: 26,
     fontWeight: 'bold',
     color: 'lightgreen',
-    paddingTop: 50
+    paddingTop: 50,
+    alignSelf: 'center'
   },
   listContainer: {
     flexDirection: 'row',
@@ -142,6 +151,7 @@ const styles = StyleSheet.create({
   },
   listItem: {
     flexDirection: 'row',
+    alignItems: 'center',
     alignSelf: 'center',
     padding: 20
   },
