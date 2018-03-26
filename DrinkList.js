@@ -71,12 +71,8 @@ const styles = StyleSheet.create({
     fontSize: 26,
     fontWeight: 'bold',
     color: 'lightgreen',
-    paddingTop: 30
-  },
-  container: {
-    flex: 1,
-    flexDirection: 'row',
-    paddingTop: 22
+    paddingTop: 40,
+    paddingBottom: 30
   },
   itemContainer: {
     flexDirection: 'row',

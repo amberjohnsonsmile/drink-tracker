@@ -13,6 +13,9 @@ export default class NavBar extends Component {
           <TouchableOpacity onPress={Actions.calendar}> 
             <Text style={styles.link}>history</Text>
           </TouchableOpacity>
+          <TouchableOpacity onPress={Actions.goals}> 
+            <Text style={styles.link}>goals</Text>
+          </TouchableOpacity>
         </View>
         <TouchableOpacity onPress={Actions.landingpage}> 
           <Text style={styles.title}>sipster</Text>

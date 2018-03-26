@@ -4,6 +4,7 @@ import { Router, Scene, Stack } from 'react-native-router-flux';
 
 import AddDrink from './AddDrink';
 import Calendar from './Calendar';
+import Goals from './Goals';
 import LandingPage from './LandingPage';
 import NavBar from './NavBar';
 
@@ -23,6 +24,10 @@ const App = () => {
         <Scene key="calendar"
           component={Calendar}
           title="history"
+        />
+        <Scene key="goals"
+          component={Goals}
+          title="goals"
         />
       </Stack>
     </Router>
