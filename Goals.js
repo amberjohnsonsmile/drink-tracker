@@ -1,5 +1,12 @@
 import React, {Component} from 'react';
-import {Image, StyleSheet, Text, View} from 'react-native';
+import {
+  ActivityIndicator,
+  Image,
+  FlatList,
+  StyleSheet,
+  Text,
+  View
+} from 'react-native';
 import NavBar from './NavBar';
 
 export default class Goals extends Component {
@@ -24,25 +31,33 @@ export default class Goals extends Component {
   }
 
   render() {
+    if (this.state.isLoading) {
+      return (
+        <View
+          style={{flex: 8, justifyContent: 'center', backgroundColor: 'white'}}>
+          <ActivityIndicator />
+        </View>
+      );
+    }
+
     return (
       <View style={{flex: 1}}>
         <NavBar />
         <View style={styles.main}>
           <Text style={styles.goals}>goals</Text>
-          <View style={styles.listItem}>
-            <Image
-              source={require('./assets/drink.png')}
-              style={{width: 36, height: 50}}
-            />
-            <Text style={styles.listText}>Drink water between every drink</Text>
-          </View>
-          <View style={{flexDirection: 'row'}}>
-            <Image
-              source={require('./assets/drink.png')}
-              style={{width: 36, height: 50}}
-            />
-            <Text style={styles.listText}>Eat before drinking</Text>
-          </View>
+          <FlatList
+            data={this.state.goalsData}
+            renderItem={({item}) => (
+              <View style={styles.listItem}>
+                <Image
+                  source={require('./assets/drink.png')}
+                  style={{width: 36, height: 50}}
+                />
+                <Text style={styles.listText}>{item.goal}</Text>
+              </View>
+            )}
+            keyExtractor={(item, index) => index}
+          />
         </View>
       </View>
     );
@@ -65,6 +80,7 @@ const styles = StyleSheet.create({
   },
   listItem: {
     flexDirection: 'row',
+    alignSelf: 'center',
     padding: 20
   },
   listText: {
