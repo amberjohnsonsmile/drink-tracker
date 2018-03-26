@@ -21,7 +21,6 @@ export default class Goals extends Component {
       addingGoal: false,
       isLoading: true,
       goalAdded: false,
-      goalDeleted: false,
       text: ''
     };
   }
@@ -66,19 +65,13 @@ export default class Goals extends Component {
   };
 
   deleteGoal = (item, event) => {
-    console.log(item.id);
     fetch('http://sipster-tracker.herokuapp.com/goals/' + item.id, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'
       }
-    })
-      .then(() => {
-        this.setState({
-          goalDeleted: true
-        });
-      })
-      .catch(console.error);
+    }).catch(console.error);
+    this.getGoals();
   };
 
   componentDidMount() {
