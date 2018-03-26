@@ -104,7 +104,7 @@ export default class AddDrink extends Component {
       <View style={{flex: 1}}>
         <NavBar />
         <View style={styles.main}>
-          <Text style={styles.date}>Sunday, March 25</Text>
+          <Text style={styles.date}>{this.state.date.toDateString()}</Text>
           <TouchableOpacity
             onPress={this.showPicker.bind(this, 'spinner', {
               date: this.state.presetDate
