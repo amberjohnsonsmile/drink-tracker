@@ -45,19 +45,21 @@ export default class Goals extends Component {
         <NavBar />
         <View style={styles.main}>
           <Text style={styles.goals}>goals</Text>
-          <FlatList
-            data={this.state.goalsData}
-            renderItem={({item}) => (
-              <View style={styles.listItem}>
-                <Image
-                  source={require('./assets/drink.png')}
-                  style={{width: 36, height: 50}}
-                />
-                <Text style={styles.listText}>{item.goal}</Text>
-              </View>
-            )}
-            keyExtractor={(item, index) => index}
-          />
+          <View style={styles.listContainer}>
+            <FlatList
+              data={this.state.goalsData}
+              renderItem={({item}) => (
+                <View style={styles.listItem}>
+                  <Image
+                    source={require('./assets/drink.png')}
+                    style={{width: 36, height: 50}}
+                  />
+                  <Text style={styles.listText}>{item.goal}</Text>
+                </View>
+              )}
+              keyExtractor={(item, index) => index}
+            />
+          </View>
         </View>
       </View>
     );
@@ -78,6 +80,11 @@ const styles = StyleSheet.create({
     paddingTop: 40,
     paddingBottom: 40
   },
+  listContainer: {
+    flexDirection: 'row',
+    paddingRight: 45,
+    paddingLeft: 45
+  },
   listItem: {
     flexDirection: 'row',
     alignSelf: 'center',
@@ -85,6 +92,6 @@ const styles = StyleSheet.create({
   },
   listText: {
     fontSize: 16,
-    padding: 10
+    paddingLeft: 10
   }
 });
