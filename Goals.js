@@ -45,9 +45,10 @@ export default class Goals extends Component {
         });
       })
       .catch(console.error);
+    this.getGoals();
   };
 
-  componentDidMount() {
+  getGoals = () => {
     return fetch('http://sipster-tracker.herokuapp.com/goals')
       .then(response => response.json())
       .then(response => {
@@ -60,6 +61,10 @@ export default class Goals extends Component {
         );
       })
       .catch(console.error);
+  }
+
+  componentDidMount() {
+    this.getGoals();
   }
 
   render() {
