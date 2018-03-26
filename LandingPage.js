@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Alert, Button, Image, StyleSheet, Text, View } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
+import Footer from './Footer';
 import NavBar from './NavBar';
 
 export default class LandingPage extends Component {
@@ -19,6 +20,7 @@ export default class LandingPage extends Component {
             color="lightgreen"
           />
         </View>
+        <Footer />
       </View>
     );
   }

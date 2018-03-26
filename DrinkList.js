@@ -7,6 +7,7 @@ import {
   Text,
   View
 } from 'react-native';
+import Footer from './Footer';
 
 export default class DrinkList extends Component {
   constructor(props) {
@@ -52,6 +53,7 @@ export default class DrinkList extends Component {
             )}
             keyExtractor={(item, index) => index}
           />
+        <Footer />
         </ScrollView>
       </View>
     );

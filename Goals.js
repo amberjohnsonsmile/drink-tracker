@@ -12,6 +12,7 @@ import {
   TouchableOpacity,
   View
 } from 'react-native';
+import Footer from './Footer';
 import NavBar from './NavBar';
 
 export default class Goals extends Component {
@@ -137,6 +138,7 @@ export default class Goals extends Component {
                 keyExtractor={(item, index) => index}
               />
             </View>
+          <Footer />
           </ScrollView>
         </View>
       </View>

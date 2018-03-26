@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
   View
 } from 'react-native';
+import Footer from './Footer';
 import NavBar from './NavBar';
 
 export default class AddDrink extends Component {
@@ -132,6 +133,7 @@ export default class AddDrink extends Component {
             style={{width: 100, height: 140, marginTop: 50}}
           />
         </View>
+        <Footer />
       </View>
     );
   }
