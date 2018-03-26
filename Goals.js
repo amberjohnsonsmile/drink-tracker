@@ -45,8 +45,8 @@ export default class Goals extends Component {
           addingGoal: false
         });
       })
+      .then(this.getGoals)
       .catch(console.error);
-    this.getGoals();
   };
 
   getGoals = () => {
@@ -70,8 +70,9 @@ export default class Goals extends Component {
       headers: {
         'Content-Type': 'application/json'
       }
-    }).catch(console.error);
-    this.getGoals();
+    })
+      .then(this.getGoals)
+      .catch(console.error);
   };
 
   componentDidMount() {
