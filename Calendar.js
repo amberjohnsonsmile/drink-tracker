@@ -9,8 +9,8 @@ export default class Calendar extends Component {
   render() {
     return (
       <View style={{flex: 1}}>
-          <NavBar />
-          <DrinkList />
+        <NavBar />
+        <DrinkList />
       </View>
     );
   }
