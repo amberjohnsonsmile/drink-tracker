@@ -15,7 +15,7 @@ export default class AddDrink extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      date: new Date(),
+      spinnerDate: new Date(),
       drinkAdded: false,
       drinkDeleted: false
     };
@@ -23,7 +23,7 @@ export default class AddDrink extends Component {
 
   addDrink = () => {
     var selectedDate =
-      this.state.date.toISOString().slice(0, 11) + '00:00:00.000Z';
+      this.state.spinnerDate.toISOString().slice(0, 11) + '00:00:00.000Z';
     fetch('http://sipster-tracker.herokuapp.com/drinks/' + selectedDate)
       .then(response => response.json())
       .then(response => {
@@ -53,7 +53,7 @@ export default class AddDrink extends Component {
 
   deleteDrink = () => {
     var selectedDate =
-      this.state.date.toISOString().slice(0, 11) + '00:00:00.000Z';
+      this.state.spinnerDate.toISOString().slice(0, 11) + '00:00:00.000Z';
     fetch('http://sipster-tracker.herokuapp.com/drinks/' + selectedDate)
       .then(response => response.json())
       .then(response => {
@@ -90,7 +90,6 @@ export default class AddDrink extends Component {
       } else {
         // <<<< Newly selected date >>>>
         var date = new Date(year, month, day);
-        newState[stateKey + 'Text'] = date.toLocaleDateString();
         newState[stateKey + 'Date'] = date;
       }
       this.setState(newState);
@@ -104,7 +103,7 @@ export default class AddDrink extends Component {
       <View style={{flex: 1}}>
         <NavBar />
         <View style={styles.main}>
-          <Text style={styles.date}>{this.state.date.toDateString()}</Text>
+          <Text style={styles.date}>{this.state.spinnerDate.toDateString()}</Text>
           <TouchableOpacity
             onPress={this.showPicker.bind(this, 'spinner', {
               date: this.state.presetDate
