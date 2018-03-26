@@ -9,6 +9,7 @@ import {
   StyleSheet,
   Text,
   TextInput,
+  TouchableOpacity,
   View
 } from 'react-native';
 import NavBar from './NavBar';
@@ -20,6 +21,7 @@ export default class Goals extends Component {
       addingGoal: false,
       isLoading: true,
       goalAdded: false,
+      goalDeleted: false,
       text: ''
     };
   }
@@ -61,7 +63,23 @@ export default class Goals extends Component {
         );
       })
       .catch(console.error);
-  }
+  };
+
+  deleteGoal = (item, event) => {
+    console.log(item.id);
+    fetch('http://sipster-tracker.herokuapp.com/goals/' + item.id, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(() => {
+        this.setState({
+          goalDeleted: true
+        });
+      })
+      .catch(console.error);
+  };
 
   componentDidMount() {
     this.getGoals();
@@ -110,7 +128,16 @@ export default class Goals extends Component {
                       source={require('./assets/drink.png')}
                       style={{width: 36, height: 50}}
                     />
+
                     <Text style={styles.listText}>{item.goal}</Text>
+
+                    <TouchableOpacity
+                      onPress={event => this.deleteGoal(item, event)}>
+                      <Image
+                        source={require('./assets/delete.png')}
+                        style={{width: 20, height: 20, marginLeft: 10}}
+                      />
+                    </TouchableOpacity>
                   </View>
                 )}
                 keyExtractor={(item, index) => index}
@@ -149,16 +176,15 @@ const styles = StyleSheet.create({
     alignSelf: 'center'
   },
   listContainer: {
-    flexDirection: 'row',
-    paddingRight: 45,
-    paddingLeft: 45,
-    paddingTop: 30
+    flexDirection: 'row'
   },
   listItem: {
     flexDirection: 'row',
     alignItems: 'center',
     alignSelf: 'center',
-    padding: 20
+    padding: 20,
+    paddingLeft: 60,
+    paddingRight: 60
   },
   listText: {
     fontSize: 16,
