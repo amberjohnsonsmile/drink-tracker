@@ -12,14 +12,37 @@ export default class Footer extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>&copy;2018 Amber Johnson</Text>
-        <TouchableOpacity
-          onPress={() => Linking.openURL('https://amberjohnsonsmile.co/')}>
-          <Image
-            source={require('./assets/drink.png')}
-            style={{width: 30, height: 30}}
-          />
-        </TouchableOpacity>
+        <Text style={styles.copyright}>&copy;2018 Amber Johnson</Text>
+        <View style={styles.links}>
+          <TouchableOpacity
+            onPress={() => Linking.openURL('https://amberjohnsonsmile.co/')}>
+            <Image
+              source={require('./assets/website.png')}
+              style={styles.flaticon}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => Linking.openURL('https://github.com/amberjohnsonsmile')}>
+            <Image
+              source={require('./assets/github.png')}
+              style={styles.flaticon}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => Linking.openURL('https://www.linkedin.com/in/amberjohnsonsmile/')}>
+            <Image
+              source={require('./assets/linkedin.png')}
+              style={styles.flaticon}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => Linking.openURL('mailto:amberjohnsonsmile@gmail.com')}>
+            <Image
+              source={require('./assets/email.png')}
+              style={styles.flaticon}
+            />
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }
@@ -30,6 +53,20 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     flex: 1,
     flexDirection: 'row',
-    alignItems: 'flex-end'
+    alignItems: 'flex-end',
+    justifyContent: 'space-between'
+  },
+  copyright: {
+    paddingLeft: 10,
+    paddingBottom: 10
+  },
+  links: {
+    flexDirection: 'row'
+  },
+  flaticon: {
+    width: 20,
+    height: 20,
+    marginRight: 10,
+    marginBottom: 10
   }
 });

@@ -139,8 +139,8 @@ export default class Goals extends Component {
               />
             </View>
           </ScrollView>
-          <Footer />
         </View>
+        <Footer />
       </View>
     );
   }
@@ -169,6 +169,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'lightgreen',
     paddingTop: 50,
+    paddingBottom: 20,
     alignSelf: 'center'
   },
   listContainer: {
