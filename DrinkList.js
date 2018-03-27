@@ -45,16 +45,18 @@ export default class DrinkList extends Component {
         <ScrollView>
           <Text style={styles.history}>drink history</Text>
           <View style={styles.list}>
-            <FlatList
-              data={this.state.drinksData}
-              renderItem={({item}) => (
-                <View style={styles.itemContainer}>
-                  <Text style={styles.date}>{item.dateString}:</Text>
-                  <Text style={styles.drinks}>{item.drinks}</Text>
-                </View>
-              )}
-              keyExtractor={(item, index) => index}
-            />
+            <View style={{alignItems: 'center'}}>
+              <FlatList
+                data={this.state.drinksData}
+                renderItem={({item}) => (
+                  <View style={styles.itemContainer}>
+                    <Text style={styles.date}>{item.dateString}:</Text>
+                    <Text style={styles.drinks}>{item.drinks}</Text>
+                  </View>
+                )}
+                keyExtractor={(item, index) => index}
+              />
+            </View>
           </View>
           <Footer />
         </ScrollView>
@@ -82,8 +84,9 @@ const styles = StyleSheet.create({
   itemContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
-    padding: 10
+    justifyContent: 'space-between',
+    padding: 10,
+    paddingRight: 20
   },
   date: {
     fontSize: 18
