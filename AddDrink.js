@@ -25,7 +25,7 @@ export default class AddDrink extends Component {
   addDrink = () => {
     var selectedDate =
       this.state.spinnerDate.toISOString().slice(0, 11) + '00:00:00.000Z';
-    fetch('http://sipster-tracker.herokuapp.com/drinks/' + selectedDate)
+    fetch('https://sipster-tracker.herokuapp.com/drinks/' + selectedDate)
       .then(response => response.json())
       .then(response => {
         this.setState({
@@ -33,7 +33,7 @@ export default class AddDrink extends Component {
         });
       })
       .then(() => {
-        fetch('http://sipster-tracker.herokuapp.com/drinks/' + selectedDate, {
+        fetch('https://sipster-tracker.herokuapp.com/drinks/' + selectedDate, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json'
@@ -55,7 +55,7 @@ export default class AddDrink extends Component {
   deleteDrink = () => {
     var selectedDate =
       this.state.spinnerDate.toISOString().slice(0, 11) + '00:00:00.000Z';
-    fetch('http://sipster-tracker.herokuapp.com/drinks/' + selectedDate)
+    fetch('https://sipster-tracker.herokuapp.com/drinks/' + selectedDate)
       .then(response => response.json())
       .then(response => {
         this.setState({
@@ -63,7 +63,7 @@ export default class AddDrink extends Component {
         });
       })
       .then(() => {
-        fetch('http://sipster-tracker.herokuapp.com/drinks/' + selectedDate, {
+        fetch('https://sipster-tracker.herokuapp.com/drinks/' + selectedDate, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json'

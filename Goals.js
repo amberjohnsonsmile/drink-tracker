@@ -31,7 +31,7 @@ export default class Goals extends Component {
   };
 
   addGoal = () => {
-    fetch('http://sipster-tracker.herokuapp.com/goals', {
+    fetch('https://sipster-tracker.herokuapp.com/goals', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -51,7 +51,7 @@ export default class Goals extends Component {
   };
 
   getGoals = () => {
-    return fetch('http://sipster-tracker.herokuapp.com/goals')
+    return fetch('https://sipster-tracker.herokuapp.com/goals')
       .then(response => response.json())
       .then(response => {
         this.setState(
@@ -66,7 +66,7 @@ export default class Goals extends Component {
   };
 
   deleteGoal = (item, event) => {
-    fetch('http://sipster-tracker.herokuapp.com/goals/' + item.id, {
+    fetch('https://sipster-tracker.herokuapp.com/goals/' + item.id, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'
