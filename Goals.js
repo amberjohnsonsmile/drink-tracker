@@ -138,9 +138,9 @@ export default class Goals extends Component {
                 keyExtractor={(item, index) => index}
               />
             </View>
-          <Footer />
           </ScrollView>
         </View>
+        <Footer />
       </View>
     );
   }
@@ -169,6 +169,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'lightgreen',
     paddingTop: 50,
+    paddingBottom: 20,
     alignSelf: 'center'
   },
   listContainer: {

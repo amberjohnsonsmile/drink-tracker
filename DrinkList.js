@@ -33,7 +33,8 @@ export default class DrinkList extends Component {
   render() {
     if (this.state.isLoading) {
       return (
-        <View style={{flex: 8, justifyContent: 'center', backgroundColor: 'white'}}>
+        <View
+          style={{flex: 8, justifyContent: 'center', backgroundColor: 'white'}}>
           <ActivityIndicator />
         </View>
       );
@@ -43,17 +44,19 @@ export default class DrinkList extends Component {
       <View style={styles.main}>
         <ScrollView>
           <Text style={styles.history}>drink history</Text>
-          <FlatList
-            data={this.state.drinksData}
-            renderItem={({item}) => (
-              <View style={styles.itemContainer}>
-                <Text style={styles.date}>{item.dateString}:</Text>
-                <Text style={styles.drinks}>{item.drinks}</Text>
-              </View>
-            )}
-            keyExtractor={(item, index) => index}
-          />
-        <Footer />
+          <View style={styles.list}>
+            <FlatList
+              data={this.state.drinksData}
+              renderItem={({item}) => (
+                <View style={styles.itemContainer}>
+                  <Text style={styles.date}>{item.dateString}:</Text>
+                  <Text style={styles.drinks}>{item.drinks}</Text>
+                </View>
+              )}
+              keyExtractor={(item, index) => index}
+            />
+          </View>
+          <Footer />
         </ScrollView>
       </View>
     );
@@ -89,5 +92,8 @@ const styles = StyleSheet.create({
     paddingLeft: 12,
     fontSize: 26,
     fontWeight: 'bold'
+  },
+  list: {
+    paddingBottom: 50
   }
 });
