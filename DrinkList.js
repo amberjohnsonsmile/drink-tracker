@@ -12,11 +12,11 @@ import Footer from './Footer';
 export default class DrinkList extends Component {
   constructor(props) {
     super(props);
-    this.state = {isLoading: true};
+    this.state = {isLoading: true, month: 'march'};
   }
 
   componentDidMount() {
-    return fetch('https://sipster-tracker.herokuapp.com/march')
+    return fetch('https://sipster-tracker.herokuapp.com/' + this.state.month)
       .then(response => response.json())
       .then(response => {
         this.setState(
@@ -42,7 +42,7 @@ export default class DrinkList extends Component {
     return (
       <View style={styles.main}>
         <ScrollView>
-          <Text style={styles.history}>drink history</Text>
+          <Text style={styles.history}>{this.state.month} drinks</Text>
           <View style={styles.list}>
             <View style={styles.listContainer}>
               <FlatList
