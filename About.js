@@ -8,11 +8,11 @@ import NavBar from './NavBar';
 export default class LandingPage extends Component {
   render() {
     return (
-      <View style={{flex: 1, backgroundColor: 'white'}}>
+      <View style={styles.container}>
         <NavBar />
         <View style={styles.main}>
           <ScrollView>
-            <View style={{alignItems: 'center'}}>
+            <View style={styles.scroll}>
               <Text style={styles.about}>about sipster</Text>
               <Image
                 source={require('./assets/drink.png')}
@@ -35,7 +35,7 @@ export default class LandingPage extends Component {
                 enjoys building databases, playing the cello, and long-distance
                 hiking.
               </Text>
-              <View style={{height: 60}} />
+              <View style={styles.spacer} />
             </View>
             <Footer style={{inherit: 'none'}} />
           </ScrollView>
@@ -46,8 +46,15 @@ export default class LandingPage extends Component {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'white'
+  },
   main: {
     flex: 8,
+    alignItems: 'center'
+  },
+  scroll: {
     alignItems: 'center'
   },
   about: {
@@ -74,5 +81,8 @@ const styles = StyleSheet.create({
     paddingRight: 20,
     paddingLeft: 20,
     textAlign: 'center'
+  },
+  spacer: {
+    height: 60
   }
 });

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {ScrollView, StyleSheet, Text, View} from 'react-native';
+import {ScrollView, Text, View} from 'react-native';
 
 import AddDrink from './AddDrink';
 import DrinkList from './DrinkList';

@@ -101,17 +101,19 @@ export default class AddDrink extends Component {
 
   render() {
     return (
-      <View style={{flex: 1}}>
+      <View style={styles.container}>
         <NavBar />
         <View style={styles.main}>
-          <Text style={styles.date}>{this.state.spinnerDate.toDateString()}</Text>
+          <Text style={styles.date}>
+            {this.state.spinnerDate.toDateString()}
+          </Text>
           <TouchableOpacity
             onPress={this.showPicker.bind(this, 'spinner', {
               date: this.state.presetDate
             })}>
             <Text style={styles.select}>select another date</Text>
           </TouchableOpacity>
-          <View style={{alignItems: 'stretch'}}>
+          <View style={styles.buttons}>
             <Button
               onPress={this.addDrink}
               title="Add drink"
@@ -128,10 +130,7 @@ export default class AddDrink extends Component {
             />
             {this.state.drinkDeleted && <Text>drink deleted!</Text>}
           </View>
-          <Image
-            source={require('./assets/drink.png')}
-            style={{width: 100, height: 140, marginTop: 50}}
-          />
+          <Image source={require('./assets/drink.png')} style={styles.image} />
         </View>
         <Footer />
       </View>
@@ -140,11 +139,17 @@ export default class AddDrink extends Component {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  },
   main: {
     flex: 8,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white'
+  },
+  buttons: {
+    alignItems: 'stretch'
   },
   date: {
     alignSelf: 'center',
@@ -155,6 +160,11 @@ const styles = StyleSheet.create({
   select: {
     fontSize: 16,
     paddingBottom: 60
+  },
+  image: {
+    width: 100,
+    height: 140,
+    marginTop: 50
   },
   spacer: {
     height: 20
