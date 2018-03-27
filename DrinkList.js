@@ -33,8 +33,7 @@ export default class DrinkList extends Component {
   render() {
     if (this.state.isLoading) {
       return (
-        <View
-          style={{flex: 8, justifyContent: 'center', backgroundColor: 'white'}}>
+        <View style={styles.loading}>
           <ActivityIndicator />
         </View>
       );
@@ -45,7 +44,7 @@ export default class DrinkList extends Component {
         <ScrollView>
           <Text style={styles.history}>drink history</Text>
           <View style={styles.list}>
-            <View style={{alignItems: 'center'}}>
+            <View style={styles.listContainer}>
               <FlatList
                 data={this.state.drinksData}
                 renderItem={({item}) => (
@@ -66,6 +65,11 @@ export default class DrinkList extends Component {
 }
 
 const styles = StyleSheet.create({
+  loading: {
+    flex: 8,
+    justifyContent: 'center',
+    backgroundColor: 'white'
+  },
   main: {
     flex: 8,
     flexDirection: 'row',
@@ -80,6 +84,9 @@ const styles = StyleSheet.create({
     color: 'lightgreen',
     paddingTop: 40,
     paddingBottom: 30
+  },
+  listContainer: {
+    alignItems: 'center'
   },
   itemContainer: {
     flexDirection: 'row',

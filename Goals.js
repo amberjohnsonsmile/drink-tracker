@@ -83,15 +83,14 @@ export default class Goals extends Component {
   render() {
     if (this.state.isLoading) {
       return (
-        <View
-          style={{flex: 8, justifyContent: 'center', backgroundColor: 'white'}}>
+        <View style={styles.loading}>
           <ActivityIndicator />
         </View>
       );
     }
 
     return (
-      <View style={{flex: 1}}>
+      <View style={styles.container}>
         <NavBar />
         <View style={styles.main}>
           <ScrollView>
@@ -104,7 +103,7 @@ export default class Goals extends Component {
                 onSubmitEditing={this.addGoal}
               />
             ) : (
-              <View style={{alignItems: 'center'}}>
+              <View style={styles.button}>
                 <Button
                   onPress={this.createGoal}
                   title="Create new goal"
@@ -121,7 +120,7 @@ export default class Goals extends Component {
                   <View style={styles.listItem}>
                     <Image
                       source={require('./assets/drink.png')}
-                      style={{width: 36, height: 50}}
+                      style={styles.drink}
                     />
 
                     <Text style={styles.listText}>{item.goal}</Text>
@@ -130,7 +129,7 @@ export default class Goals extends Component {
                       onPress={event => this.deleteGoal(item, event)}>
                       <Image
                         source={require('./assets/delete.png')}
-                        style={{width: 20, height: 20, marginLeft: 10}}
+                        style={styles.delete}
                       />
                     </TouchableOpacity>
                   </View>
@@ -147,6 +146,14 @@ export default class Goals extends Component {
 }
 
 const styles = StyleSheet.create({
+  loading: {
+    flex: 8,
+    justifyContent: 'center',
+    backgroundColor: 'white'
+  },
+  container: {
+    flex: 1
+  },
   main: {
     flex: 8,
     alignItems: 'center',
@@ -155,6 +162,9 @@ const styles = StyleSheet.create({
   },
   spacer: {
     height: 50
+  },
+  button: {
+    alignItems: 'center'
   },
   text: {
     height: 40,
@@ -172,6 +182,10 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
     alignSelf: 'center'
   },
+  drink: {
+    width: 36,
+    height: 50
+  },
   listContainer: {
     flexDirection: 'row'
   },
@@ -186,5 +200,10 @@ const styles = StyleSheet.create({
   listText: {
     fontSize: 16,
     paddingLeft: 10
+  },
+  delete: {
+    width: 20,
+    height: 20,
+    marginLeft: 10
   }
 });

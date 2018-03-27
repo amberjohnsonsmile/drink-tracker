@@ -1,26 +1,26 @@
-import React, { Component } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { Actions } from 'react-native-router-flux';
+import React, {Component} from 'react';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {Actions} from 'react-native-router-flux';
 
 export default class NavBar extends Component {
   render() {
     return (
       <View style={styles.nav}>
-        <View style={{flexDirection: 'row'}}>
-          <TouchableOpacity onPress={Actions.adddrink}> 
+        <View style={styles.container}>
+          <TouchableOpacity onPress={Actions.adddrink}>
             <Text style={styles.link}>drink</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={Actions.calendar}> 
+          <TouchableOpacity onPress={Actions.calendar}>
             <Text style={styles.link}>history</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={Actions.goals}> 
+          <TouchableOpacity onPress={Actions.goals}>
             <Text style={styles.link}>goals</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={Actions.about}> 
+          <TouchableOpacity onPress={Actions.about}>
             <Text style={styles.link}>about</Text>
           </TouchableOpacity>
         </View>
-        <TouchableOpacity onPress={Actions.landingpage}> 
+        <TouchableOpacity onPress={Actions.landingpage}>
           <Text style={styles.title}>sipster</Text>
         </TouchableOpacity>
       </View>
@@ -35,6 +35,9 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
     justifyContent: 'space-between',
     backgroundColor: 'lightgreen'
+  },
+  container: {
+    flexDirection: 'row'
   },
   link: {
     paddingBottom: 10,
