@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {
   ActivityIndicator,
   FlatList,
+  Picker,
   ScrollView,
   StyleSheet,
   Text,
@@ -43,6 +44,24 @@ export default class DrinkList extends Component {
       <View style={styles.main}>
         <ScrollView>
           <Text style={styles.history}>{this.state.month} drinks</Text>
+          <Picker
+            selectedValue={this.state.month}
+            onValueChange={(itemValue, itemIndex) =>
+              this.setState({month: itemValue})
+            }>
+            <Picker.Item label="January" value="january" />
+            <Picker.Item label="February" value="february" />
+            <Picker.Item label="March" value="march" />
+            <Picker.Item label="April" value="april" />
+            <Picker.Item label="May" value="may" />
+            <Picker.Item label="June" value="june" />
+            <Picker.Item label="July" value="july" />
+            <Picker.Item label="August" value="august" />
+            <Picker.Item label="September" value="september" />
+            <Picker.Item label="October" value="october" />
+            <Picker.Item label="November" value="november" />
+            <Picker.Item label="December" value="december" />
+          </Picker>
           <View style={styles.list}>
             <View style={styles.listContainer}>
               <FlatList
