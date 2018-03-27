@@ -8,7 +8,7 @@ export default class NavBar extends Component {
       <View style={styles.nav}>
         <View style={{flexDirection: 'row'}}>
           <TouchableOpacity onPress={Actions.adddrink}> 
-            <Text style={styles.link}>add</Text>
+            <Text style={styles.link}>drink</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={Actions.calendar}> 
             <Text style={styles.link}>history</Text>

@@ -16,27 +16,28 @@ export default class LandingPage extends Component {
               <Text style={styles.about}>about sipster</Text>
               <Image
                 source={require('./assets/drink.png')}
-                style={{width: 100, height: 140}}
+                style={styles.drinkImage}
               />
-              <Text>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industrys standard dummy text
-                ever since the 1500s, when an unknown printer took a galley of
-                type and scrambled it to make a type specimen book.
+              <Text style={styles.content}>
+                With ample opportunities for free drinks in the tech community,
+                it can be easy to lose track of just how much alcohol you're
+                consuming. Sipster tracks your daily intake and allows you to
+                set goals for your health. Sipster is built on React Native,
+                Express, Node, Knex.js, and PostgeSQL.
               </Text>
               <Text style={styles.about}>about the developer</Text>
               <Image
-                source={require('./assets/drink.png')}
-                style={{width: 100, height: 140}}
+                source={require('./assets/headshot.jpg')}
+                style={styles.headshot}
               />
-              <Text>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industrys standard dummy text
-                ever since the 1500s, when an unknown printer took a galley of
-                type and scrambled it to make a type specimen book.
+              <Text style={styles.content}>
+                Amber Johnson is a full stack web developer based in Denver. She
+                enjoys building databases, playing the cello, and long-distance
+                hiking.
               </Text>
-              <Footer />
+              <View style={{height: 60}} />
             </View>
+            <Footer style={{inherit: 'none'}} />
           </ScrollView>
         </View>
       </View>
@@ -56,5 +57,22 @@ const styles = StyleSheet.create({
     color: 'lightgreen',
     paddingTop: 40,
     paddingBottom: 30
+  },
+  drinkImage: {
+    width: 100,
+    height: 140,
+    marginBottom: 40
+  },
+  headshot: {
+    width: 140,
+    height: 140,
+    borderRadius: 10,
+    marginTop: 10,
+    marginBottom: 30
+  },
+  content: {
+    paddingRight: 20,
+    paddingLeft: 20,
+    textAlign: 'center'
   }
 });
