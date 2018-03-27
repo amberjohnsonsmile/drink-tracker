@@ -16,7 +16,7 @@ export default class DrinkList extends Component {
   }
 
   componentDidMount() {
-    return fetch('https://sipster-tracker.herokuapp.com/drinks')
+    return fetch('https://sipster-tracker.herokuapp.com/march')
       .then(response => response.json())
       .then(response => {
         this.setState(
