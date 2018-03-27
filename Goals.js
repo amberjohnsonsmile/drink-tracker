@@ -138,8 +138,8 @@ export default class Goals extends Component {
                 keyExtractor={(item, index) => index}
               />
             </View>
-          <Footer />
           </ScrollView>
+          <Footer />
         </View>
       </View>
     );
