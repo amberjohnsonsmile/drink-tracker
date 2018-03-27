@@ -1,5 +1,12 @@
 import React, {Component} from 'react';
-import {Image, Linking, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  Image,
+  Linking,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View
+} from 'react-native';
 
 export default class Footer extends Component {
   render() {
@@ -7,8 +14,7 @@ export default class Footer extends Component {
       <View style={styles.container}>
         <Text>&copy;2018 Amber Johnson</Text>
         <TouchableOpacity
-          onPress={() => Linking.openURL('https://amberjohnsonsmile.co/')}
-        >
+          onPress={() => Linking.openURL('https://amberjohnsonsmile.co/')}>
           <Image
             source={require('./assets/drink.png')}
             style={{width: 30, height: 30}}
@@ -23,6 +29,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
     flex: 1,
-    justifyContent: 'flex-end'
+    flexDirection: 'row',
+    alignItems: 'flex-end'
   }
 });
