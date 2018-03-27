@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Alert, Button, Image, StyleSheet, Text, View } from 'react-native';
 import { Router, Scene, Stack } from 'react-native-router-flux';
 
+import About from './About';
 import AddDrink from './AddDrink';
 import Calendar from './Calendar';
 import Goals from './Goals';
@@ -28,6 +29,10 @@ const App = () => {
         <Scene key="goals"
           component={Goals}
           title="goals"
+        />
+        <Scene key="about"
+          component={About}
+          title="about"
         />
       </Stack>
     </Router>
