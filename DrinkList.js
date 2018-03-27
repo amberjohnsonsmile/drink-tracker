@@ -17,6 +17,10 @@ export default class DrinkList extends Component {
   }
 
   componentDidMount() {
+    this.getDrinks();
+  }
+
+  getDrinks = () => {
     return fetch('https://sipster-tracker.herokuapp.com/' + this.state.month)
       .then(response => response.json())
       .then(response => {
@@ -43,26 +47,27 @@ export default class DrinkList extends Component {
     return (
       <View style={styles.main}>
         <ScrollView>
-          <Text style={styles.history}>{this.state.month} drinks</Text>
-          <Picker
-            selectedValue={this.state.month}
-            onValueChange={(itemValue, itemIndex) =>
-              this.setState({month: itemValue})
-            }>
-            <Picker.Item label="January" value="january" />
-            <Picker.Item label="February" value="february" />
-            <Picker.Item label="March" value="march" />
-            <Picker.Item label="April" value="april" />
-            <Picker.Item label="May" value="may" />
-            <Picker.Item label="June" value="june" />
-            <Picker.Item label="July" value="july" />
-            <Picker.Item label="August" value="august" />
-            <Picker.Item label="September" value="september" />
-            <Picker.Item label="October" value="october" />
-            <Picker.Item label="November" value="november" />
-            <Picker.Item label="December" value="december" />
-          </Picker>
+          <Text style={styles.history}>drink history</Text>
           <View style={styles.list}>
+            <Picker
+              style={styles.picker}
+              selectedValue={this.state.month}
+              onValueChange={(itemValue, itemIndex) =>
+                this.setState({month: itemValue})
+              }>
+              <Picker.Item label="January" value="january" />
+              <Picker.Item label="February" value="february" />
+              <Picker.Item label="March" value="march" />
+              <Picker.Item label="April" value="april" />
+              <Picker.Item label="May" value="may" />
+              <Picker.Item label="June" value="june" />
+              <Picker.Item label="July" value="july" />
+              <Picker.Item label="August" value="august" />
+              <Picker.Item label="September" value="september" />
+              <Picker.Item label="October" value="october" />
+              <Picker.Item label="November" value="november" />
+              <Picker.Item label="December" value="december" />
+            </Picker>
             <View style={styles.listContainer}>
               <FlatList
                 data={this.state.drinksData}
@@ -102,7 +107,11 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'lightgreen',
     paddingTop: 40,
-    paddingBottom: 30
+  },
+  picker: {
+    width: 110,
+    alignSelf: 'center',
+    marginBottom: 30
   },
   listContainer: {
     alignItems: 'center'
