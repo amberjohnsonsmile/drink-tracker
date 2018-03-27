@@ -23,23 +23,23 @@ export default class AddDrink extends Component {
   }
 
   addDrink = () => {
-    var selectedDate =
-      this.state.spinnerDate.toISOString().slice(0, 11) + '00:00:00.000Z';
-    fetch('http://sipster-tracker.herokuapp.com/drinks/' + selectedDate)
-      .then(response => response.json())
-      .then(response => {
-        this.setState({
-          dailyDrinks: response.drinks.drinks
-        });
-      })
-      .then(() => {
-        fetch('http://sipster-tracker.herokuapp.com/drinks/' + selectedDate, {
+    // var selectedDate =
+      // this.state.spinnerDate.toISOString().slice(0, 11) + '00:00:00.000Z';
+    // fetch('http://sipster-tracker.herokuapp.com/drinks/' + selectedDate)
+    //   .then(response => response.json())
+    //   .then(response => {
+    //     this.setState({
+    //       dailyDrinks: response.drinks.drinks
+    //     });
+    //   })
+    //   .then(() => {
+        fetch('http://sipster-tracker.herokuapp.com/drinks/2018-03-29T00:00:00.000Z', {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            drinks: this.state.dailyDrinks + 1
+            drinks: 1
           })
         })
           .then(() => {
@@ -48,28 +48,28 @@ export default class AddDrink extends Component {
             });
           })
           .catch(console.error);
-      })
-      .catch(console.error);
+      // })
+      // .catch(console.error);
   };
 
   deleteDrink = () => {
-    var selectedDate =
-      this.state.spinnerDate.toISOString().slice(0, 11) + '00:00:00.000Z';
-    fetch('http://sipster-tracker.herokuapp.com/drinks/' + selectedDate)
-      .then(response => response.json())
-      .then(response => {
-        this.setState({
-          dailyDrinks: response.drinks.drinks
-        });
-      })
-      .then(() => {
-        fetch('http://sipster-tracker.herokuapp.com/drinks/' + selectedDate, {
+    // var selectedDate =
+    //   this.state.spinnerDate.toISOString().slice(0, 11) + '00:00:00.000Z';
+    // fetch('http://sipster-tracker.herokuapp.com/drinks/' + selectedDate)
+    //   .then(response => response.json())
+    //   .then(response => {
+    //     this.setState({
+    //       dailyDrinks: response.drinks.drinks
+    //     });
+    //   })
+    //   .then(() => {
+        fetch('http://sipster-tracker.herokuapp.com/drinks/2018-03-29T00:00:00.000Z', {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            drinks: this.state.dailyDrinks - 1
+            drinks: 0
           })
         })
           .then(() => {
@@ -78,8 +78,8 @@ export default class AddDrink extends Component {
             });
           })
           .catch(console.error);
-      })
-      .catch(console.error);
+      // })
+      // .catch(console.error);
   };
 
   showPicker = async (stateKey, options) => {
@@ -104,7 +104,7 @@ export default class AddDrink extends Component {
       <View style={{flex: 1}}>
         <NavBar />
         <View style={styles.main}>
-          <Text style={styles.date}>{this.state.spinnerDate.toDateString()}</Text>
+          <Text style={styles.date}>Thu Mar 29, 2018</Text>
           <TouchableOpacity
             onPress={this.showPicker.bind(this, 'spinner', {
               date: this.state.presetDate
