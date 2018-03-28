@@ -31,8 +31,7 @@ export default class DrinkList extends Component {
     const date = new Date();
     const month = monthNames[date.getMonth()];
     super(props);
-    // this.state = {isLoading: true, month: month};
-    this.state = {isLoading: true, month: 'november'};
+    this.state = {isLoading: true, month: month};
   }
 
   componentDidMount() {

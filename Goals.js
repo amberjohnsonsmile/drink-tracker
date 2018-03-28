@@ -5,6 +5,7 @@ import {
   Button,
   Image,
   FlatList,
+  Platform,
   ScrollView,
   StyleSheet,
   Text,
@@ -173,8 +174,12 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     paddingRight: 10,
     alignSelf: 'stretch',
-    borderWidth: 1,
-    borderColor: 'gray'
+    ...Platform.select({
+      ios: {
+        borderWidth: 1,
+        borderColor: 'gray'
+      }
+    })
   },
   goals: {
     fontSize: 26,
