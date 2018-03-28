@@ -51,9 +51,10 @@ export default class AddDrink extends Component {
           })
         })
           .then(() => {
-            this.setState({
-              drinkAdded: true
-            });
+            this.setState({drinkAdded: true});
+            setTimeout(() => {
+              this.setState({drinkAdded: false});
+            }, 5000);
           })
           .catch(console.error);
       })
@@ -81,9 +82,10 @@ export default class AddDrink extends Component {
           })
         })
           .then(() => {
-            this.setState({
-              drinkDeleted: true
-            });
+            this.setState({drinkDeleted: true});
+            setTimeout(() => {
+              this.setState({drinkDeleted: false});
+            }, 5000);
           })
           .catch(console.error);
       })
