@@ -3,7 +3,9 @@ import {
   Alert,
   Button,
   DatePickerAndroid,
+  DatePickerIOS,
   Image,
+  Platform,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -20,6 +22,12 @@ export default class AddDrink extends Component {
       drinkAdded: false,
       drinkDeleted: false
     };
+
+    this.setDate = this.setDate.bind(this);
+  }
+
+  setDate(newDate) {
+    this.setState({spinnerDate: newDate});
   }
 
   addDrink = () => {
@@ -104,15 +112,30 @@ export default class AddDrink extends Component {
       <View style={styles.container}>
         <NavBar />
         <View style={styles.main}>
-          <Text style={styles.date}>
-            {this.state.spinnerDate.toDateString()}
-          </Text>
-          <TouchableOpacity
-            onPress={this.showPicker.bind(this, 'spinner', {
-              date: this.state.presetDate
-            })}>
-            <Text style={styles.select}>select another date</Text>
-          </TouchableOpacity>
+
+          {Platform.OS === 'android' && (
+            <Text style={styles.date}>
+              {this.state.spinnerDate.toDateString()}
+            </Text>
+          )}
+
+          {Platform.OS === 'ios' ? (
+            <View style={styles.pickerIOS}>
+              <DatePickerIOS
+                date={this.state.spinnerDate}
+                mode="date"
+                onDateChange={this.setDate}
+              />
+            </View>
+          ) : (
+            <TouchableOpacity
+              onPress={this.showPicker.bind(this, 'spinner', {
+                date: this.state.presetDate
+              })}>
+              <Text style={styles.select}>select another date</Text>
+            </TouchableOpacity>
+          )}
+
           <View style={styles.buttons}>
             <Button
               onPress={this.addDrink}
@@ -167,6 +190,9 @@ const styles = StyleSheet.create({
     marginTop: 50
   },
   spacer: {
-    height: 20
+    height: Platform.OS === 'android' ? 20 : 0
+  },
+  pickerIOS: {
+    alignSelf: 'stretch'
   }
 });
