@@ -112,7 +112,6 @@ export default class AddDrink extends Component {
       <View style={styles.container}>
         <NavBar />
         <View style={styles.main}>
-
           {Platform.OS === 'android' && (
             <Text style={styles.date}>
               {this.state.spinnerDate.toDateString()}
@@ -142,7 +141,9 @@ export default class AddDrink extends Component {
               title="Add drink"
               color="lightgreen"
             />
-            {this.state.drinkAdded && <Text>drink added!</Text>}
+            {this.state.drinkAdded && (
+              <Text style={styles.confirmed}>drink added!</Text>
+            )}
 
             <View style={styles.spacer} />
 
@@ -151,7 +152,9 @@ export default class AddDrink extends Component {
               title="Delete drink"
               color="lightgreen"
             />
-            {this.state.drinkDeleted && <Text>drink deleted!</Text>}
+            {this.state.drinkDeleted && (
+              <Text style={styles.confirmed}>drink deleted!</Text>
+            )}
           </View>
           <Image source={require('./assets/drink.png')} style={styles.image} />
         </View>
@@ -183,6 +186,9 @@ const styles = StyleSheet.create({
   select: {
     fontSize: 16,
     paddingBottom: 60
+  },
+  confirmed: {
+    alignSelf: 'center'
   },
   image: {
     width: 100,
