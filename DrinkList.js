@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {
   ActivityIndicator,
   FlatList,
+  Image,
+  Picker,
   ScrollView,
   StyleSheet,
   Text,
@@ -11,12 +13,19 @@ import Footer from './Footer';
 
 export default class DrinkList extends Component {
   constructor(props) {
+    const monthNames = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
+    const date = new Date();
+    const month = monthNames[date.getMonth()];
     super(props);
-    this.state = {isLoading: true};
+    this.state = {isLoading: true, month: month};
   }
 
   componentDidMount() {
-    return fetch('https://sipster-tracker.herokuapp.com/march')
+    this.getDrinks();
+  }
+
+  getDrinks = () => {
+    return fetch('https://sipster-tracker.herokuapp.com/' + this.state.month)
       .then(response => response.json())
       .then(response => {
         this.setState(
@@ -28,7 +37,7 @@ export default class DrinkList extends Component {
         );
       })
       .catch(console.error);
-  }
+  };
 
   render() {
     if (this.state.isLoading) {
@@ -44,7 +53,35 @@ export default class DrinkList extends Component {
         <ScrollView>
           <Text style={styles.history}>drink history</Text>
           <View style={styles.list}>
+            <Picker
+              style={styles.picker}
+              selectedValue={this.state.month}
+              onValueChange={(itemValue, itemIndex) =>
+                this.setState({month: itemValue}, this.getDrinks)
+              }>
+              <Picker.Item label="January" value="january" />
+              <Picker.Item label="February" value="february" />
+              <Picker.Item label="March" value="march" />
+              <Picker.Item label="April" value="april" />
+              <Picker.Item label="May" value="may" />
+              <Picker.Item label="June" value="june" />
+              <Picker.Item label="July" value="july" />
+              <Picker.Item label="August" value="august" />
+              <Picker.Item label="September" value="september" />
+              <Picker.Item label="October" value="october" />
+              <Picker.Item label="November" value="november" />
+              <Picker.Item label="December" value="december" />
+            </Picker>
             <View style={styles.listContainer}>
+              {this.state.drinksData.length < 1 && (
+                <View style={styles.noDrinks}>
+                  <Image
+                    source={require('./assets/drink.png')}
+                    style={styles.image}
+                  />
+                  <Text>No drinks yet!</Text>
+                </View>
+              )}
               <FlatList
                 data={this.state.drinksData}
                 renderItem={({item}) => (
@@ -82,8 +119,13 @@ const styles = StyleSheet.create({
     fontSize: 26,
     fontWeight: 'bold',
     color: 'lightgreen',
-    paddingTop: 40,
-    paddingBottom: 30
+    paddingTop: 40
+  },
+  picker: {
+    height: 21,
+    width: 110,
+    alignSelf: 'center',
+    marginBottom: 30
   },
   listContainer: {
     alignItems: 'center'
@@ -105,5 +147,16 @@ const styles = StyleSheet.create({
   },
   list: {
     paddingBottom: 50
+  },
+  image: {
+    width: 100,
+    height: 140,
+    marginBottom: 20
+  },
+  noDrinks: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 60,
+    marginBottom: 120
   }
 });
