@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {
   ActivityIndicator,
   FlatList,
+  Image,
   Picker,
   ScrollView,
   StyleSheet,
@@ -12,8 +13,11 @@ import Footer from './Footer';
 
 export default class DrinkList extends Component {
   constructor(props) {
+    const monthNames = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
+    const date = new Date();
+    const month = monthNames[date.getMonth()];
     super(props);
-    this.state = {isLoading: true, month: 'march'};
+    this.state = {isLoading: true, month: month};
   }
 
   componentDidMount() {
@@ -33,7 +37,7 @@ export default class DrinkList extends Component {
         );
       })
       .catch(console.error);
-  }
+  };
 
   render() {
     if (this.state.isLoading) {
@@ -53,7 +57,7 @@ export default class DrinkList extends Component {
               style={styles.picker}
               selectedValue={this.state.month}
               onValueChange={(itemValue, itemIndex) =>
-                this.setState({month: itemValue})
+                this.setState({month: itemValue}, this.getDrinks)
               }>
               <Picker.Item label="January" value="january" />
               <Picker.Item label="February" value="february" />
@@ -69,6 +73,15 @@ export default class DrinkList extends Component {
               <Picker.Item label="December" value="december" />
             </Picker>
             <View style={styles.listContainer}>
+              {this.state.drinksData.length < 1 && (
+                <View style={styles.noDrinks}>
+                  <Image
+                    source={require('./assets/drink.png')}
+                    style={styles.image}
+                  />
+                  <Text>No drinks yet!</Text>
+                </View>
+              )}
               <FlatList
                 data={this.state.drinksData}
                 renderItem={({item}) => (
@@ -106,9 +119,10 @@ const styles = StyleSheet.create({
     fontSize: 26,
     fontWeight: 'bold',
     color: 'lightgreen',
-    paddingTop: 40,
+    paddingTop: 40
   },
   picker: {
+    height: 21,
     width: 110,
     alignSelf: 'center',
     marginBottom: 30
@@ -133,5 +147,16 @@ const styles = StyleSheet.create({
   },
   list: {
     paddingBottom: 50
+  },
+  image: {
+    width: 100,
+    height: 140,
+    marginBottom: 20
+  },
+  noDrinks: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 60,
+    marginBottom: 120
   }
 });
