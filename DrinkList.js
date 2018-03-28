@@ -4,6 +4,7 @@ import {
   FlatList,
   Image,
   Picker,
+  Platform,
   ScrollView,
   StyleSheet,
   Text,
@@ -13,11 +14,25 @@ import Footer from './Footer';
 
 export default class DrinkList extends Component {
   constructor(props) {
-    const monthNames = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
+    const monthNames = [
+      'january',
+      'february',
+      'march',
+      'april',
+      'may',
+      'june',
+      'july',
+      'august',
+      'september',
+      'october',
+      'november',
+      'december'
+    ];
     const date = new Date();
     const month = monthNames[date.getMonth()];
     super(props);
-    this.state = {isLoading: true, month: month};
+    // this.state = {isLoading: true, month: month};
+    this.state = {isLoading: true, month: 'november'};
   }
 
   componentDidMount() {
@@ -122,10 +137,14 @@ const styles = StyleSheet.create({
     paddingTop: 40
   },
   picker: {
-    height: 21,
-    width: 110,
-    alignSelf: 'center',
-    marginBottom: 30
+    ...Platform.select({
+      android: {
+        height: 21,
+        width: 110,
+        alignSelf: 'center',
+        marginBottom: 30
+      }
+    })
   },
   listContainer: {
     alignItems: 'center'
@@ -156,7 +175,7 @@ const styles = StyleSheet.create({
   noDrinks: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 60,
-    marginBottom: 120
+    marginTop: Platform.OS === 'android' ? 60 : 20,
+    marginBottom: Platform.OS === 'android' ? 120 : 30
   }
 });
