@@ -172,7 +172,9 @@ const styles = StyleSheet.create({
     marginLeft: 40,
     paddingLeft: 10,
     paddingRight: 10,
-    alignSelf: 'stretch'
+    alignSelf: 'stretch',
+    borderWidth: 1,
+    borderColor: 'gray'
   },
   goals: {
     fontSize: 26,
