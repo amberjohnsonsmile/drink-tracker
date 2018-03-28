@@ -23,7 +23,6 @@ export default class AddDrink extends Component {
   }
 
   addDrink = () => {
-    console.log(this.state.spinnerDate);
     var selectedDate =
       this.state.spinnerDate.toISOString().slice(0, 11) + '00:00:00.000Z';
     fetch('https://sipster-tracker.herokuapp.com/drinks/' + selectedDate)
@@ -54,7 +53,6 @@ export default class AddDrink extends Component {
   };
 
   deleteDrink = () => {
-    console.log(this.state.spinnerDate);
     var selectedDate =
       this.state.spinnerDate.toISOString().slice(0, 11) + '00:00:00.000Z';
     fetch('https://sipster-tracker.herokuapp.com/drinks/' + selectedDate)
