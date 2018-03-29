@@ -27,11 +27,11 @@ If you would like to install the React Native app locally and view it on an iOS 
 
 1. Navigate to the new folder on the command line and run `npm install`
 
-1. Run `npm start`
+1. Run `npm start` to generate a QR code in your terminal
 
 1. Install the free Expo Client app on your phone, available in the App Store and Play Store
 
-1. Scan the QR code generated from the `npm start` command
+1. Launch Expo and scan the QR code to launch the app on your phone
 
 
 ## Contact
