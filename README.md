@@ -1,28 +1,49 @@
-# Sipster Project Proposal
+# Sipster
 
 ![logo](https://user-images.githubusercontent.com/31632938/37634420-080a77b8-2bbc-11e8-94df-9cfff48d2bc5.png)
 
-## Project Description
+With ample opportunities for free drinks in the tech community, it can be easy to lose track of just how much alcohol you're consuming. Sipster provides an easy way to increase awareness, set goals, and enjoy all that free beer in a healthy way.
 
-Sipster allows you to keep track of how many alcoholic drinks you consume on a daily basis. The app also provides tools for goal setting and looking back at drinking patterns.
+[View backend code](https://github.com/amberjohnsonsmile/drink-tracker-backend)
 
-## Problem statement
+(screenshots)
 
-With ample opportunities for free drinks in the tech community, it can be easy to lose track of just how much alcohol you're consuming.
+## Technologies
 
-## How will your project solve this problem?
+* React Native
+* Node.js
+* Express.js
+* Knex.js
+* PostgreSQL
+* Heroku
 
-Sipster provides an easy way to increase awareness, set goals, and enjoy all that free beer in a healthy way.
 
-## Map the user experience
+## Local Installation Instructions
+If you would like to install the React Native app locally and view it on an iOS or Android phone, follow these steps:
 
-The user will open the app and see the landing page. They will then move on to the calendar page, where they will have the option to click on a date and add a drink. There will be a navigation bar on the side linking to "calendar", "goals" and an "about" page. The goals page will allow the user to add, edit, and delete goals. The about page will give general info about the app.
+1. Create a fork of this repo
 
-## What technologies do you plan to use?
+1. Clone it to your local machine
 
-* React Native (new technology) - frontend for mobile app
-* PostgreSQL - database
-* Knex.js - database queries
-* Cypress - end to end testing
-* Google Sign-In (stretch) - allow a user to sign in with Google
-* Google Calendar API (stretch) - integrate with user's calendar events
+1. Navigate to the new folder on the command line and run `npm install`
+
+1. Run `npm start`
+
+1. Install the free Expo Client app on your phone, available in the App Store and Play Store
+
+1. Scan the QR code generated from the `npm start` command
+
+
+## Contact
+
+Amber Johnson, Full Stack Web Developer
+
+![headshot](https://user-images.githubusercontent.com/31632938/36687590-517de15e-1ae7-11e8-8753-5c28cefd5e69.jpeg)
+* Email amberjohnsonsmile@gmail.com
+* Portfolio [amberjohnsonsmile.co](https://amberjohnsonsmile.co)
+* GitHub [@amberjohnsonsmile](https://github.com/amberjohnsonsmile)
+* LinkedIn [@amberjohnsonsmile](https://linkedin.com/in/amberjohnsonsmile)
+
+## License
+
+MIT
