@@ -4,6 +4,8 @@
 
 With ample opportunities for free drinks in the tech community, it can be easy to lose track of just how much alcohol you're consuming. Sipster provides an easy way to increase awareness, set goals, and enjoy all that free beer in a healthy way.
 
+This is the frontend code for the Sipster project.
+
 [View backend code](https://github.com/amberjohnsonsmile/drink-tracker-backend)
 
 ![screenshots](https://user-images.githubusercontent.com/31632938/38100953-0efaee36-333c-11e8-8fff-aa703470dd13.jpg)
