@@ -19,6 +19,14 @@ This is the frontend code for the Sipster project.
 * PostgreSQL
 * Heroku
 
+## View the App on Your Phone
+If you would like to run the app on your phone, follow these steps:
+
+1. Install the free Expo Client app, available in the Play Store or App Store.
+
+1. Scan the QR code:
+
+![QR code](https://user-images.githubusercontent.com/31632938/38640644-13933470-3d92-11e8-813a-ec662f685914.png)
 
 ## Local Installation Instructions
 If you would like to install the React Native app locally and view it on an iOS or Android phone, follow these steps:
