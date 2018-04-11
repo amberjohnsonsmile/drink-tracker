@@ -24,7 +24,7 @@ If you would like to run the app on your phone, follow these steps:
 
 1. Install the free Expo Client app, available in the Play Store or App Store.
 
-1. Scan the QR code:
+1. Launch the Expo Client app and scan the QR code:
 
 ![QR code](https://user-images.githubusercontent.com/31632938/38640644-13933470-3d92-11e8-813a-ec662f685914.png)
 
